@@ -13,6 +13,7 @@ public class FantasyApplication {
 
         UserRoleRepo userRoleRepo = context.getBean(UserRoleRepo.class);
         System.out.println(userRoleRepo.findById(1));
+
     }
 
 }
