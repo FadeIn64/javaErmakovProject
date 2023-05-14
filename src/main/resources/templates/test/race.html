@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>Hello world!!!</h1>
+    <table>
+        <tr th:if="${races.size()>0}" th:each="i : ${#numbers.sequence(0, #lists.size(races) - 1)}">
+            <th th:utext="${races.get(i).getId()}"></th>
+            <th th:utext="${races.get(i).getChampionship()}"></th>
+            <th th:utext="${races.get(i).getLocation()}"></th>
+            <th th:utext="${races.get(i).getName()}"></th>
+            <th th:utext="${races.get(i).getStartPredictDate()}"></th>
+            <th th:utext="${races.get(i).getEndPredictDate()}"></th>
+        </tr>
+
+    </table>
+</body>
+</html>
