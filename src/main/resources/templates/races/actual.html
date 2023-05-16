@@ -22,6 +22,9 @@
                 <td th:utext="${@championshipService.championships.get(races.get(i).getId())}"></td>
                 <td th:utext="${races.get(i).getName()}"></td>
                 <td th:utext="${races.get(i).getLocation()}"></td>
+                <td>
+                    <a th:href="@{/races/end/{id}(id=${races.get(i).getId()})}">Закончить</a>
+                </td>
             </tr>
         </tbody>
     </table>

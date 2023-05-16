@@ -13,7 +13,7 @@ import org.springframework.data.relational.core.mapping.Table;
 public class UserPredictResult {
     @Id
     int id;
-    int userPredict;
+    int userId;
     double sumPoints;
     int race;
 }
