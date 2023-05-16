@@ -17,7 +17,7 @@ public class TestRaceController {
 
     @GetMapping("/")
     public String viewAll(Model model){
-        List<Race> races = raceRepo.findAll();
+        List<Race> races = raceRepo.findActual();
         model.addAttribute("races", races);
         return "test/race";
     }

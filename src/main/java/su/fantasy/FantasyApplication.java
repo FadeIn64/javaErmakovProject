@@ -19,7 +19,7 @@ public class FantasyApplication {
 //        System.out.println(userRoleRepo.findById(1));
 
         RaceRepo raceRepo = context.getBean(RaceRepo.class);
-        System.out.println(raceRepo.findById(1));
+        System.out.println(raceRepo.findPredictedByUser(1));
 
         Date date = new Date();
     }
