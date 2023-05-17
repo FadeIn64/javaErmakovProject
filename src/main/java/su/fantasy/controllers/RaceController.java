@@ -32,4 +32,10 @@ public class RaceController {
         raceService.endPredict(id);
         return "redirect:/races/actual";
     }
+
+    @GetMapping("result/RequiredToResult")
+    String getNotResulted(Model model){
+        model.addAttribute("races", raceService.findNotResulted());
+        return "races/result/RequiredToResult";
+    }
 }

@@ -14,6 +14,6 @@ public class UserRole {
     @Id
     int id;
 
-    String name;
+    Role name;
 }
 

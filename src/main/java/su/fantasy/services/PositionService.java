@@ -16,6 +16,6 @@ public class PositionService {
     @Autowired
     public PositionService(PositionRepo positionRepo) {
         this.positionRepo = positionRepo;
-        positionRepo.findAll().forEach(x-> positions.put(x.getId(), x.getName()));
+        this.positionRepo.findAll().forEach(x-> positions.put(x.getId(), x.getName()));
     }
 }

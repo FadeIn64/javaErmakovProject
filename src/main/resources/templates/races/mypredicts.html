@@ -19,7 +19,7 @@
     </thead>
     <tbody>
     <tr th:if="${races.size()>0}" th:each="i : ${#numbers.sequence(0, races.size()-1)}">
-        <td th:utext="${@championshipService.championships.get(races.get(i).getId())}"></td>
+        <td th:utext="${@championshipService.championships.get(races.get(i).getChampionship())}"></td>
         <td th:utext="${races.get(i).getName()}"></td>
         <td th:utext="${races.get(i).getLocation()}"></td>
     </tr>

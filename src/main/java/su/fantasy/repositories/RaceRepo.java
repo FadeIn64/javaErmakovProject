@@ -26,4 +26,9 @@ public interface RaceRepo extends CrudRepository<Race, Integer> {
 """)
     List<Race> findPredictedByUser(@Param("user_id") int userId);
 
+    @Query("""
+        SELECT * FROM NOT_RESULTED_RACE
+""")
+    List<Race> findNotResulted();
+
 }

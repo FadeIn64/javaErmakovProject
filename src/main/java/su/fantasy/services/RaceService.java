@@ -36,6 +36,10 @@ public class RaceService {
         repo.save(race.get());
     }
 
+    public List<Race> findNotResulted(){
+        return repo.findNotResulted();
+    }
+
 
     public List<Race> findPredictedByUser(int userId){
         return repo.findPredictedByUser(userId);
