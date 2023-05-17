@@ -44,4 +44,13 @@ public class RaceService {
     public List<Race> findPredictedByUser(int userId){
         return repo.findPredictedByUser(userId);
     }
+
+    public List<Race> findResulted(){
+        return repo.findResulted();
+    }
+
+    public Race findById(int id){
+        var race = repo.findById(id);
+        return race.orElseGet(Race::new);
+    }
 }

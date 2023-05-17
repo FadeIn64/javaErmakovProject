@@ -5,7 +5,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import su.fantasy.services.RaceService;
 
@@ -37,5 +36,11 @@ public class RaceController {
     String getNotResulted(Model model){
         model.addAttribute("races", raceService.findNotResulted());
         return "races/result/RequiredToResult";
+    }
+
+    @GetMapping("result/resulted")
+    String getResulted(Model model){
+        model.addAttribute("races", raceService.findResulted());
+        return "races/result/resulted";
     }
 }

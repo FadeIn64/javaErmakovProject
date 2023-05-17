@@ -4,6 +4,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 import su.fantasy.repositories.RaceRepo;
+import su.fantasy.repositories.RaceResultRepo;
 import su.fantasy.repositories.UserRoleRepo;
 
 import java.util.Date;
@@ -18,8 +19,8 @@ public class FantasyApplication {
 //        UserRoleRepo userRoleRepo = context.getBean(UserRoleRepo.class);
 //        System.out.println(userRoleRepo.findById(1));
 
-        RaceRepo raceRepo = context.getBean(RaceRepo.class);
-        System.out.println(raceRepo.findPredictedByUser(1));
+        RaceResultRepo raceRepo = context.getBean(RaceResultRepo.class);
+        raceRepo.findRaceRequestByRaceId(1).forEach(System.out::println);
 
         Date date = new Date();
     }

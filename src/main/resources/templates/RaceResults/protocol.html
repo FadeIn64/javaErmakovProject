@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        td{font-size: 30px}
+        th{font-size: 32px}
+    </style>
+</head>
+<body>
+    <h1 th:utext="${championship + ' ' + race.getName()}">
+    </h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Racer</th>
+                <th>Team</th>
+                <th>Position</th>
+                <th>Points</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:if="${protocols.size() > 0}" th:each="i : ${protocols}">
+                <td th:utext="${i.getRacerName()}"></td>
+                <td th:utext="${i.getTeamName()}"></td>
+                <td th:utext="${@positionService.positions.get(i.getPosition())}"></td>
+                <td th:utext="${i.getPoints()}"></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

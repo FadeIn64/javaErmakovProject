@@ -5,6 +5,7 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import su.fantasy.models.Race;
+import su.fantasy.models.RaceProtocolComponent;
 
 import java.util.List;
 
@@ -30,5 +31,9 @@ public interface RaceRepo extends CrudRepository<Race, Integer> {
         SELECT * FROM NOT_RESULTED_RACE
 """)
     List<Race> findNotResulted();
+
+    @Query("SELECT * FROM RESULTED_RACES")
+    List<Race> findResulted();
+
 
 }
