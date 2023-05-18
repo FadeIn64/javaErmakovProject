@@ -16,4 +16,6 @@ public class UserPredict {
     int userId;
     int raceParticipant;
     int position;
+
+    //
 }
