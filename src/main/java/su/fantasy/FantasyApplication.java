@@ -3,12 +3,12 @@ package su.fantasy;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
+import org.springframework.security.provisioning.JdbcUserDetailsManager;
+import org.springframework.web.bind.annotation.GetMapping;
 import su.fantasy.repositories.RaceRepo;
-import su.fantasy.repositories.RaceResultRepo;
-import su.fantasy.repositories.UserRoleRepo;
+import su.parameterhandlers.ControllerParameterHandlersChain;
 
 import java.util.Date;
-import java.util.Optional;
 
 @SpringBootApplication
 public class FantasyApplication {
@@ -19,10 +19,16 @@ public class FantasyApplication {
 //        UserRoleRepo userRoleRepo = context.getBean(UserRoleRepo.class);
 //        System.out.println(userRoleRepo.findById(1));
 
-        RaceResultRepo raceRepo = context.getBean(RaceResultRepo.class);
-        raceRepo.findRaceRequestByRaceId(1).forEach(System.out::println);
+        RaceRepo raceRepo = context.getBean(RaceRepo.class);
 
         Date date = new Date();
+        System.out.println(context.getBean(JdbcUserDetailsManager.class).loadUserByUsername("danila")
+                .getAuthorities());
+
+        ControllerParameterHandlersChain chain = null;
+
+        chain.annotatedMethods(GetMapping.class).parameterType(String.class).addHandler(x->true).addHandler(x->true);
+
     }
 
 }

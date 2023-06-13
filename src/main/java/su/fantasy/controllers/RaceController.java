@@ -1,6 +1,8 @@
 package su.fantasy.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,15 +15,19 @@ import su.fantasy.services.RaceService;
 public class RaceController {
     @Autowired
     RaceService raceService;
+
+    @PreAuthorize("hasRole('ADMIN')")
     @GetMapping("/actual")
     String getActual(Model model){
         model.addAttribute("races", raceService.findActual());
         return "races/actual";
     }
 
-    @GetMapping("/mypredicts/{id}")
-    String getUserPredicts(@PathVariable("id") int id, Model model){
-        model.addAttribute("races", raceService.findPredictedByUser(id));
+
+    @GetMapping("/mypredicts/{login}")
+    @PreAuthorize("hasRole('USER') and #l.equals(authentication.name)")
+    String getUserPredicts(@PathVariable("login") @Param("l") String login, Model model){
+        model.addAttribute("races", raceService.findPredictedByUser(login));
         return "races/mypredicts";
     }
 

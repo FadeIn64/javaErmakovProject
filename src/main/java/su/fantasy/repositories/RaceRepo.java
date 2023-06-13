@@ -23,9 +23,9 @@ public interface RaceRepo extends CrudRepository<Race, Integer> {
 
     @Query("""
         SELECT * FROM RACES_PREDICTED_BY_USERS_FULL
-        WHERE USER_ID = :user_id
+        WHERE LOGIN = :login
 """)
-    List<Race> findPredictedByUser(@Param("user_id") int userId);
+    List<Race> findPredictedByUserLogin(@Param("login") String login);
 
     @Query("""
         SELECT * FROM NOT_RESULTED_RACE

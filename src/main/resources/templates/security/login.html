@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form th:action="@{/login}" method="post">
+        <input type="text" id="login" name="login"  th:placeholder="login"/> <br/>
+        <input type="text"  th:placeholder="Password" id="password" name="password" /> <br />
+
+        <div align="center" th:if="${param.error}">
+            <p>Email or Password invalid, please verify</p>
+        </div>
+        <button class="btn btn-lg btn-primary btn-block" name="Submit" value="Login" type="Submit" th:text="Войти"></button>
+    </form>
+</body>
+</html>
