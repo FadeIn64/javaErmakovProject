@@ -1,8 +1,6 @@
 package su.fantasy.services;
 
 import lombok.AllArgsConstructor;
-import org.springframework.data.jdbc.repository.query.Query;
-import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Service;
 import su.fantasy.models.Race;
 import su.fantasy.repositories.RaceRepo;
@@ -37,7 +35,7 @@ public class RaceService {
     }
 
 
-    public List<Race> findPredictedByUser(int userId){
-        return repo.findPredictedByUser(userId);
+    public List<Race> findPredictedByUser(String login){
+        return repo.findPredictedByUserLogin(login);
     }
 }
