@@ -1,4 +1,4 @@
-package su.parameterhandlers;
+package su.fantasy.parameterhandlers;
 
 @FunctionalInterface
 public interface ParameterMethodHandler<T> {

@@ -1,4 +1,4 @@
-package su.parameterhandlers;
+package su.fantasy.parameterhandlers;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

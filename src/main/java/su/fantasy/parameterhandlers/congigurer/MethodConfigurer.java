@@ -1,4 +1,4 @@
-package su.parameterhandlers;
+package su.fantasy.parameterhandlers.congigurer;
 
 public interface MethodConfigurer {
 

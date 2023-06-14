@@ -4,11 +4,12 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 import org.springframework.security.provisioning.JdbcUserDetailsManager;
-import org.springframework.web.bind.annotation.GetMapping;
 import su.fantasy.repositories.RaceRepo;
-import su.parameterhandlers.ControllerParameterHandlersChain;
+import su.fantasy.parameterhandlers.congigurer.ControllerParameterHandlersChain;
 
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 @SpringBootApplication
 public class FantasyApplication {
@@ -25,10 +26,11 @@ public class FantasyApplication {
         System.out.println(context.getBean(JdbcUserDetailsManager.class).loadUserByUsername("danila")
                 .getAuthorities());
 
-        ControllerParameterHandlersChain chain = null;
+        ControllerParameterHandlersChain chain = context.getBean(ControllerParameterHandlersChain.class);
 
-        chain.annotatedMethods(GetMapping.class).parameterType(String.class).addHandler(x->true).addHandler(x->true);
-
+        Map<String, String> map = new HashMap<>();
+        map.put("hello", "hello");
+        System.out.println(map.get("hello"));
     }
 
 }
